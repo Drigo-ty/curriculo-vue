@@ -1,0 +1,188 @@
+:root {
+  --amarelo: #f5d935;
+  --preto: #111;
+  --cinza-texto: #333;
+  --cinza-claro: #aaa;
+  --borda: #e6e6e6;
+  --fonte-mono: "IBM Plex Mono", monospace;
+  --fonte-texto: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1c1c1c;
+  font-family: var(--fonte-texto);
+  color: var(--cinza-texto);
+  padding: 24px;
+}
+
+.btn-print {
+  display: block;
+  margin: 0 auto 16px;
+  padding: 8px 16px;
+  font-family: var(--fonte-mono);
+  font-size: 13px;
+  background: var(--amarelo);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-print:hover {
+  filter: brightness(0.95);
+}
+
+/* Folha do currículo */
+.curriculo {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 900px;
+}
+
+.principal {
+  padding: 40px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lateral {
+  padding: 60px 24px 24px 24px;
+  border-left: 1px solid var(--borda);
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 62px;
+  height: 62px;
+  background: var(--amarelo);
+  color: var(--preto);
+  font-family: var(--fonte-mono);
+  font-weight: 600;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho h1 {
+  font-family: var(--fonte-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--preto);
+}
+
+.cargo {
+  font-family: var(--fonte-mono);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.resumo {
+  font-size: 11px;
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+/* Títulos de seção */
+.titulo-secao {
+  font-family: var(--fonte-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cinza-claro);
+  margin-bottom: 20px;
+}
+
+/* Itens (experiência e educação) */
+.item {
+  margin-bottom: 32px;
+}
+
+.item h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--preto);
+}
+
+.funcao {
+  font-family: var(--fonte-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+  margin: 8px 0;
+}
+
+.descricao {
+  font-size: 10px;
+  line-height: 1.9;
+}
+
+/* Contato */
+.contato {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--borda);
+}
+
+.contato p {
+  font-size: 8px;
+  margin-bottom: 10px;
+  text-transform: none;
+}
+
+.contato strong {
+  color: var(--preto);
+  text-transform: uppercase;
+}
+
+/* Rodapé */
+.rodape {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--borda);
+  font-family: var(--fonte-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--cinza-claro);
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .curriculo {
+    grid-template-columns: 1fr;
+  }
+  .lateral {
+    border-left: none;
+    border-top: 1px solid var(--borda);
+    padding-top: 24px;
+  }
+}
+
+/* Impressão */
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+  .btn-print {
+    display: none;
+  }
+  .curriculo {
+    max-width: none;
+  }
+}

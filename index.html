@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+    <html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MCloven-currículo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href=""https://fonts.gstatic.com" crossorigin /">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <button class="btn-print"@click="Imprimir">Imprimir/ Salva PDF</button>
+
+            <main class="curriculo">
+                <!-- coluna principal-->
+
+                <section class="principal">
+                    <header class="cabecalho">
+                        <div class="avatar">{{iniciais}}</div>
+                        <div>
+                            <h1>{{ perfil.nome}}</h1>
+                            <p class="cargo">{{ perfil.cargo}}</p>
+                        </div>
+                    </header>
+
+                    <p class="resumo">{{ perfil.resumo }}</p>
+
+                    <h2 class="titulo-secao">Experiências Profissionais</h2>
+
+                    <article class="item" v-for="exp in experiencias" :key="exp.periodo + exp.empresa">
+                        <h3>{{exp.periodo}} | {{exp.empresa}}</h3>
+                        <p class="funcao">{{exp.funcao}}</p>
+                        <p class="descricao">{{exp.descricao}}</p>
+                    </article>
+                    
+                    <footer class="rodape">
+                        COPYRIGHT {{anoAtual}} - TODOS OS DIREITOS RESERVADOS
+                    </footer>
+                </section>
+
+                <!-- Coluna lateral -->
+                <aside class="lateral">
+                    <h2 class="titulo-secao">Educação</h2>
+
+                    <article class="item" v-for="edu in educcacao" :key="edu.ano + edu.instituicao">
+                        <h3>{{edu.ano}} | {{edu.instituicao}}</h3>
+                        <p class="funcao">{{edu.curso}}</p>
+                        <p class="descricao">{{edu.descricao}}</p>
+                    </article>
+
+                    <div class="contato">
+                        <h2 class="titulo-secao">Contato</h2>
+                        <p v-for="c in contatos" :key="c.rotulo">
+                            <strong>{{c.rotulo}}:</strong> {{c.rotulo}}
+                        </p>
+                    </div>
+                </aside>
+            </main>
+        </div>
+
+        <!-- Vue 3 vie CDN-->
+         <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+         <script src="app.js"></script>
+    </body>
+    </html>
